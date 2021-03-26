@@ -19,7 +19,11 @@ const ProfileHeader = ({ name, location }) => {
         src="static/bg.jpg"
       />
       <div className={classes.avatarContainer}>
-        <Avatar />
+        <Avatar
+          classes={{
+            root: classes.avatarCustom,
+          }}
+        />
       </div>
       <CardContent className={classes.cardContentContainer} >
         <div className={classes.namecontainer}>
@@ -49,11 +53,11 @@ const useStyles = makeStyles({
   avatarContainer: {
     padding: '16px',
     position: 'absolute',
-    top: '116px',
-    "& .MuiAvatar-root": {
-      width: '60px',
-      height: '60px'
-    }
+    top: '116px'
+  },
+  avatarCustom: {
+    width: '60px',
+    height: '60px'
   },
   cardContentContainer: {
     paddingTop: '2rem'
