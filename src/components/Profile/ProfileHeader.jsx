@@ -21,8 +21,8 @@ const ProfileHeader = ({ name, location }) => {
       <div className={classes.avatarContainer}>
         <Avatar />
       </div>
-      <CardContent>
-        <div className={classes.container}>
+      <CardContent className={classes.cardContentContainer} >
+        <div className={classes.namecontainer}>
           <Typography gutterBottom variant="h5" component="h2">
             {name}
           </Typography>
@@ -49,9 +49,16 @@ const useStyles = makeStyles({
   avatarContainer: {
     padding: '16px',
     position: 'absolute',
-    top: '125px',
+    top: '116px',
+    "& .MuiAvatar-root": {
+      width: '60px',
+      height: '60px'
+    }
   },
-  container: {
+  cardContentContainer: {
+    paddingTop: '2rem'
+  },
+  namecontainer: {
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'space-between'

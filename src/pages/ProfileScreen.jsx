@@ -19,12 +19,10 @@ export const ProfileScreen = () => {
     <Paper className={classes.paper}>
       <Grid container spacing={2}>
         <Grid item xs={12} >
-          <ProfileHeader
-            {...rest}
-          />
+          <ProfileHeader {...rest} />
         </Grid>
         <Grid item xs={12}>
-          <Card title="Experiences" >
+          <Card title="Experiences">
             <CardExperiences experiences={experiences} />
           </Card>
         </Grid>
