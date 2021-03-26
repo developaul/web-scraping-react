@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -6,9 +7,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import ReplayIcon from '@material-ui/icons/Replay';
 import IconButton from '@material-ui/core/IconButton'
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Avatar from '@material-ui/core/Avatar';
 
-export default function ProfileHeader({ name, location }) {
+const ProfileHeader = ({ name, location }) => {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -28,9 +30,12 @@ export default function ProfileHeader({ name, location }) {
             <ReplayIcon />
           </IconButton>
         </div>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {location}
-        </Typography>
+        <div className={classes.locationContainer}>
+          <LocationOnIcon fontSize="small" />
+          <Typography variant="body2" color="textSecondary" component="p">
+            {location}
+          </Typography>
+        </div>
       </CardContent>
     </Card>
   );
@@ -50,5 +55,16 @@ const useStyles = makeStyles({
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'space-between'
+  },
+  locationContainer: {
+    display: 'flex',
+    alignItems: 'center'
   }
 });
+
+ProfileHeader.propTypes = {
+  name: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired
+}
+
+export default ProfileHeader;

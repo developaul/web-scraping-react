@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Avatar,
   ListItem,
@@ -28,5 +29,11 @@ const CardExperience = ({ jobTitle, company, date_range }) => (
       } />
   </ListItem>
 );
+
+CardExperience.propTypes = {
+  jobTitle: PropTypes.string,
+  company: PropTypes.string,
+  date_range: PropTypes.string
+}
 
 export default CardExperience;
