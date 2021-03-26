@@ -1,48 +1,54 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import ReplayIcon from '@material-ui/icons/Replay';
+import IconButton from '@material-ui/core/IconButton'
+import Avatar from '@material-ui/core/Avatar';
 
-const useStyles = makeStyles({
-  media: {
-    height: 140,
-  },
-});
-
-export default function ProfileHeader() {
+export default function ProfileHeader({ name, location }) {
   const classes = useStyles();
-
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
+      <CardMedia
+        className={classes.media}
+        src="static/bg.jpg"
+      />
+      <div className={classes.avatarContainer}>
+        <Avatar />
+      </div>
+      <CardContent>
+        <div className={classes.container}>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            {name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
+          <IconButton>
+            <ReplayIcon />
+          </IconButton>
+        </div>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {location}
+        </Typography>
+      </CardContent>
     </Card>
   );
 }
+
+const useStyles = makeStyles({
+  media: {
+    backgroundColor: '#0A66C2',
+    height: 140,
+  },
+  avatarContainer: {
+    padding: '16px',
+    position: 'absolute',
+    top: '125px',
+  },
+  container: {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'space-between'
+  }
+});
